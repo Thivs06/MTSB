@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTSB Ogos 2026 — Together We Grow, Together We Shine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--sky-deep:   #0d2b3e;
+--sky-mid:    #123a4a;
+--teal-glow:  #1f6f6b;
+--marigold:   #f6a636;
+--coral:      #ff7a59;
+--mint:       #6fe3c8;
+--cream:      #fdf6ea;
+--cream-dim:  rgba(253,246,234,0.72);
+--card-bg:    rgba(253,246,234,0.06);
+--card-border:rgba(253,246,234,0.16);
+--font-display: 'Fredoka', sans-serif;
+--font-body: 'Inter', sans-serif;
+}
+*{ box-sizing:border-box; }
+body{
+margin:0;
+min-height:100vh;
+font-family: var(--font-body);
+background:
+radial-gradient(120% 60% at 50% -10%, rgba(246,166,54,0.25), transparent 60%),
+linear-gradient(180deg, var(--sky-deep) 0%, var(--sky-mid) 45%, #0a1f2b 100%);
+color: var(--cream);
+display:flex;
+justify-content:center;
+padding: 48px 16px 80px;
+position: relative;
+overflow-x:hidden;
+}
+@media (prefers-reduced-motion: no-preference){
+.spark{ animation: twinkle 3.2s ease-in-out infinite; }
+.sunrise-arc{ animation: rise 1.4s ease-out; }
+.card{ animation: fadeUp 0.6s ease-out backwards; }
+}
+@keyframes twinkle{
+0%,100%{ opacity:0.25; transform: scale(0.85); }
+50%{ opacity:1; transform: scale(1.15); }
+}
+@keyframes rise{
+from{ transform: translateY(18px); opacity:0; }
+to{ transform: translateY(0); opacity:1; }
+}
+@keyframes fadeUp{
+from{ transform: translateY(14px); opacity:0; }
+to{ transform: translateY(0); opacity:1; }
+}
+.bg-sparkles{
+position:fixed; inset:0; pointer-events:none; z-index:0;
+}
+.spark{
+position:absolute;
+color: var(--mint);
+font-size: 14px;
+filter: drop-shadow(0 0 6px rgba(111,227,200,0.6));
+}
+.page{
+position:relative;
+z-index:1;
+width:100%;
+max-width: 460px;
+}
+/* ---- Header ---- */
+.header{ text-align:center; margin-bottom: 28px; }
+.sunrise-arc{
+width: 104px;
+height: 104px;
+margin: 0 auto 18px;
+border-radius: 50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:
+radial-gradient(circle at 35% 30%, var(--marigold), var(--coral) 60%, #b8433a 100%);
+box-shadow: 0 0 0 4px rgba(253,246,234,0.14), 0 12px 32px -8px rgba(246,166,54,0.55);
+font-family: var(--font-display);
+font-weight:700;
+font-size: 26px;
+color: #2a1608;
+letter-spacing: 0.5px;
+}
+.eyebrow{
+font-family: var(--font-body);
+font-size: 12px;
+font-weight:600;
+letter-spacing: 2.5px;
+text-transform: uppercase;
+color: var(--mint);
+margin: 0 0 6px;
+}
+h1{
+font-family: var(--font-display);
+font-weight: 600;
+font-size: 25px;
+line-height:1.25;
+margin: 0 0 10px;
+color: var(--cream);
+}
+.tagline{
+font-size: 14.5px;
+color: var(--cream-dim);
+margin: 0 0 20px;
+font-weight:500;
+}
+.socials{
+display:flex;
+justify-content:center;
+gap: 14px;
+}
+.social-btn{
+width: 42px; height:42px;
+border-radius: 50%;
+display:flex; align-items:center; justify-content:center;
+background: var(--card-bg);
+border: 1px solid var(--card-border);
+color: var(--cream);
+text-decoration:none;
+transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+.social-btn:hover{
+transform: translateY(-3px);
+background: rgba(253,246,234,0.12);
+border-color: rgba(253,246,234,0.35);
+}
+.social-btn svg{ width:19px; height:19px; }
+/* ---- Section labels ---- */
+.section-label{
+text-align:center;
+font-family: var(--font-display);
+font-weight: 600;
+font-size: 12.5px;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+color: var(--marigold);
+margin: 32px 0 14px;
+}
+/* ---- Link cards ---- */
+.links{ display:flex; flex-direction:column; gap: 12px; }
+.card{
+display:flex;
+align-items:center;
+gap: 14px;
+padding: 14px 16px;
+border-radius: 18px;
+background: var(--card-bg);
+border: 1px solid var(--card-border);
+text-decoration:none;
+color: var(--cream);
+transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+.card:hover{
+transform: translateY(-2px);
+background: rgba(253,246,234,0.11);
+border-color: rgba(111,227,200,0.45);
+box-shadow: 0 10px 24px -12px rgba(111,227,200,0.35);
+}
+.card:active{ transform: translateY(0); }
+.card-icon{
+flex: 0 0 auto;
+width: 38px; height:38px;
+border-radius: 12px;
+background: linear-gradient(145deg, rgba(246,166,54,0.22), rgba(111,227,200,0.18));
+display:flex; align-items:center; justify-content:center;
+font-size: 17px;
+}
+.card-label{
+flex:1;
+font-weight: 600;
+font-size: 14.5px;
+letter-spacing: 0.1px;
+}
+.card-arrow{
+flex:0 0 auto;
+opacity:0.5;
+font-size: 15px;
+transition: transform 0.16s ease, opacity 0.16s ease;
+}
+.card:hover .card-arrow{ transform: translateX(3px); opacity:0.9; }
+footer{
+text-align:center;
+margin-top: 40px;
+font-size: 11.5px;
+color: rgba(253,246,234,0.4);
+letter-spacing: 0.4px;
+}
+</style>
+</head>
+<body>
+<div class="bg-sparkles" aria-hidden="true" id="sparkles"></div>
+<div class="page">
+
+<div class="header">
+  <div class="sunrise-arc">MTSB</div>
+  <p class="eyebrow">Semester Ogos 2026</p>
+  <h1>Minggu Tekad Siswa Budiman</h1>
+  <p class="tagline">Together We Grow, Together We Shine ✨</p>
+
+  <div class="socials">
+    <a class="social-btn" href="https://www.instagram.com/uniselmtsb/" aria-label="Instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+    </a>
+    <a class="social-btn" href="https://www.tiktok.com/@tukaraccountlain?is_from_webapp=1&sender_device=pc" aria-label="TikTok" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.5 2h3.1c.2 1.6 1.2 3 2.9 3.6v3.2c-1.4 0-2.8-.4-4-1.2v6.6c0 3.4-2.8 6.1-6.2 6.1S4.1 17.6 4.1 14.2c0-3.3 2.6-6 5.9-6.1v3.3c-1.5.2-2.6 1.4-2.6 2.9 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9V2z"/></svg>
+    </a>
+  </div>
+</div>
+
+<p class="section-label">Programme Guide</p>
+<div class="links">
+
+  <a class="card" style="animation-delay:0.02s"
+  href="JADUAL MTSB.pdf"
+  target="_blank"
+  rel="noopener">
+    <span class="card-icon">🗓️</span>
+    <span class="card-label">Programme Schedule</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="card" style="animation-delay:0.06s"
+  href="PERATURAN.pdf"
+  target="_blank"
+  rel="noopener">
+    <span class="card-icon">📜</span>
+    <span class="card-label">Rules &amp; Regulations</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="card" style="animation-delay:0.10s" href="https://chat.whatsapp.com/FmYlEA26bVHJOL7EboLNTr" target="_blank" rel="noopener">
+    <span class="card-icon">💬</span>
+    <span class="card-label">Official WhatsApp Group</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="card" style="animation-delay:0.14s" href="https://docs.google.com/forms/d/e/1FAIpQLScQ1-vSg_CtY3ual3UqqNH6Emspy9Y2dluKHKGRXn5dFYe_jA/viewform?usp=header" target="_blank" rel="noopener">
+    <span class="card-icon">🍱</span>
+    <span class="card-label">Food Survey</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+</div>
+
+<p class="section-label">Info &amp; Community</p>
+<div class="links">
+
+  <a class="card" style="animation-delay:0.34s" href="https://forms.gle/EGGLYygyqCDVpAwJ6" target="_blank" rel="noopener">
+    <span class="card-icon">❓</span>
+    <span class="card-label">FAQ</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="card" style="animation-delay:0.34s" href="https://forms.gle/pwYhwQyQStkghn6p9" target="_blank" rel="noopener">
+    <span class="card-icon">📝</span>
+    <span class="card-label">Feedback Form</span>
+    <span class="card-arrow">→</span>
+  </a>
+ 
+</div>
+<footer>MTSB &middot; Semester Ogos 2026</footer>
+</div>
+<script>
+// scatter a handful of ambient sparkle glyphs across the sky
+const layer = document.getElementById('sparkles');
+const glyphs = ['✦','✧','⋆'];
+for (let i = 0; i < 14; i++){
+const s = document.createElement('span');
+s.className = 'spark';
+s.textContent = glyphs[i % glyphs.length];
+s.style.left = Math.random() * 100 + 'vw';
+s.style.top = Math.random() * 55 + 'vh';
+s.style.animationDelay = (Math.random() * 3) + 's';
+s.style.fontSize = (10 + Math.random() * 10) + 'px';
+layer.appendChild(s);
+}
+</script>
+</body>
+</html>
