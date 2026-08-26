@@ -185,6 +185,67 @@ font-size: 15px;
 transition: transform 0.16s ease, opacity 0.16s ease;
 }
 .card:hover .card-arrow{ transform: translateX(3px); opacity:0.9; }
+
+/* ---- Image Zoom Modal Styles ---- */
+.zoom-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background-color: rgba(13, 43, 62, 0.92);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.zoom-modal.active {
+  display: flex;
+}
+.zoom-content-wrapper {
+  position: relative;
+  max-width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 10px;
+}
+.zoom-content-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+  cursor: zoom-in;
+}
+.zoom-content-wrapper img.zoomed {
+  transform: scale(1.6);
+  cursor: zoom-out;
+}
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: rgba(253, 246, 234, 0.15);
+  border: 1px solid var(--card-border);
+  color: var(--cream);
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.15s ease;
+}
+.close-btn:hover {
+  background: rgba(253, 246, 234, 0.3);
+}
+
 footer{
 text-align:center;
 margin-top: 40px;
@@ -247,26 +308,26 @@ letter-spacing: 0.4px;
     <span class="card-arrow">→</span>
   </a>
 
-</div>
-
-<p class="section-label">Info &amp; Community</p>
-<div class="links">
-
-  <a class="card" style="animation-delay:0.34s" href="https://forms.gle/EGGLYygyqCDVpAwJ6" target="_blank" rel="noopener">
-    <span class="card-icon">❓</span>
-    <span class="card-label">FAQ</span>
+  <a class="card" style="animation-delay:0.18s" href="#" id="lyricsCardBtn">
+    <span class="card-icon">🎵</span>
+    <span class="card-label">Official Song Lyrics</span>
     <span class="card-arrow">→</span>
   </a>
 
-  <a class="card" style="animation-delay:0.34s" href="https://forms.gle/pwYhwQyQStkghn6p9" target="_blank" rel="noopener">
-    <span class="card-icon">📝</span>
-    <span class="card-label">Feedback Form</span>
-    <span class="card-arrow">→</span>
-  </a>
- 
 </div>
+
 <footer>MTSB &middot; Semester Ogos 2026</footer>
 </div>
+
+<!-- Zoom Modal Structure -->
+<div class="zoom-modal" id="lyricsModal">
+  <button class="close-btn" id="closeModalBtn">&times;</button>
+  <div class="zoom-content-wrapper">
+    <!-- Replace 'song-lyrics.jpg' with your actual image path or URL -->
+    <img src="song-lyrics.jpg" alt="Official Song Lyrics" id="zoomableImage">
+  </div>
+</div>
+
 <script>
 // scatter a handful of ambient sparkle glyphs across the sky
 const layer = document.getElementById('sparkles');
@@ -281,6 +342,33 @@ s.style.animationDelay = (Math.random() * 3) + 's';
 s.style.fontSize = (10 + Math.random() * 10) + 'px';
 layer.appendChild(s);
 }
+
+// Modal and Zoom functionality
+const lyricsCardBtn = document.getElementById('lyricsCardBtn');
+const lyricsModal = document.getElementById('lyricsModal');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const zoomableImage = document.getElementById('zoomableImage');
+
+lyricsCardBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  lyricsModal.classList.add('active');
+});
+
+closeModalBtn.addEventListener('click', () => {
+  lyricsModal.classList.remove('active');
+  zoomableImage.classList.remove('zoomed');
+});
+
+lyricsModal.addEventListener('click', (e) => {
+  if (e.target === lyricsModal) {
+    lyricsModal.classList.remove('active');
+    zoomableImage.classList.remove('zoomed');
+  }
+});
+
+zoomableImage.addEventListener('click', () => {
+  zoomableImage.classList.toggle('zoomed');
+});
 </script>
 </body>
 </html>
